@@ -45,12 +45,25 @@ class LinkedList
   def at(index)
     current_node = head
     counter = 0
+    return nil if index >= size
+
     until counter.eql?(index)
       counter += 1
       current_node = current_node.next_node
     end
 
     current_node
+  end
+
+  def pop
+    return @head = nil if size.eql?(0) || head.next_node.nil?
+
+    current_node = head
+    until current_node.next_node.next_node.nil?
+      current_node = current_node.next_node
+    end
+
+    current_node.next_node = nil
   end
 
   def to_s
@@ -95,4 +108,7 @@ list.tail.to_s
 
 list.at(0).to_s
 list.at(4).to_s
-list.at(7).to_s
+list.at(123).to_s
+
+list.pop
+list.to_s
