@@ -66,6 +66,16 @@ class LinkedList
     current_node.next_node = nil
   end
 
+  def contains?(value)
+    current_node = head
+    until current_node.nil?
+      return true if current_node.value.eql?(value)
+      current_node = current_node.next_node
+    end
+
+    false
+  end
+
   def to_s
     current_node = head
     until current_node.nil?
@@ -112,3 +122,5 @@ list.at(123).to_s
 
 list.pop
 list.to_s
+
+puts list.contains?(5)
