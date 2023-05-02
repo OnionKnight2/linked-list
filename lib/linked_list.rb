@@ -76,6 +76,18 @@ class LinkedList
     false
   end
 
+  def find(value)
+    index = 0
+    current_node = head
+    until current_node.nil?
+      return index if current_node.value.eql?(value)
+      index += 1
+      current_node = current_node.next_node
+    end
+
+    nil
+  end
+
   def to_s
     current_node = head
     until current_node.nil?
@@ -124,3 +136,5 @@ list.pop
 list.to_s
 
 puts list.contains?(5)
+
+puts list.find(-3)
