@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 class LinkedList
-  attr_accessor :head
+  attr_reader :head
   def initialize
     @head = nil
   end
@@ -33,6 +33,15 @@ class LinkedList
     counter
   end
 
+  def tail
+    current_node = head
+    until current_node.next_node.nil?
+      current_node = current_node.next_node
+    end
+
+    current_node
+  end
+
   def to_s
     current_node = head
     until current_node.nil?
@@ -51,8 +60,8 @@ class Node
     @next_node = next_node
   end
 
-  def to_s 
-    value
+  def to_s
+    puts value
   end
 end
 
@@ -68,3 +77,7 @@ list.prepend(-53)
 list.to_s
 
 puts list.size
+
+puts list.head.to_s
+
+puts list.tail.to_s
