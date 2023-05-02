@@ -42,6 +42,17 @@ class LinkedList
     current_node
   end
 
+  def at(index)
+    current_node = head
+    counter = 0
+    until counter.eql?(index)
+      counter += 1
+      current_node = current_node.next_node
+    end
+
+    current_node
+  end
+
   def to_s
     current_node = head
     until current_node.nil?
@@ -78,6 +89,10 @@ list.to_s
 
 puts list.size
 
-puts list.head.to_s
+list.head.to_s
 
-puts list.tail.to_s
+list.tail.to_s
+
+list.at(0).to_s
+list.at(4).to_s
+list.at(7).to_s
